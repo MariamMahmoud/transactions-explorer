@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,24 +10,24 @@ datasource db {
 model Transaction {
   id Int @id @default(autoincrement())
 
-  category Category @relation(fields: [categoryId], references: [id])
-  categoryId Int 
-  account Account @relation(fields: [accountId], references: [id])
-  accountId Int 
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  account    Account  @relation(fields: [accountId], references: [id])
+  accountId  Int
 
   reference String?
-  date DateTime
-  amount Float
-  currency String
+  date      DateTime
+  amount    Float
+  currency  String
 
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt 
+  updatedAt DateTime @updatedAt
 }
 
 model Category {
-  id Int @id @default(autoincrement())
-  name String
-  color String
+  id           Int           @id @default(autoincrement())
+  name         String
+  color        String
   transactions Transaction[]
 
   createdAt DateTime @default(now())
@@ -36,9 +35,9 @@ model Category {
 }
 
 model Account {
-  id Int @id @default(autoincrement())
-  name String? @default("Anonymus")
-  bank String
+  id           Int           @id @default(autoincrement())
+  name         String?       @default("Anonymus")
+  bank         String
   transactions Transaction[]
 
   createdAt DateTime @default(now())
