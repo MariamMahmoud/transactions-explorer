@@ -15,7 +15,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - ./src/config/.env
+      - ./.env
     environment:
       POSTGRES_HOST: db
       DB_PORT: 5432
