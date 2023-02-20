@@ -7,7 +7,8 @@
     "test": "mocha test/**/*.js --exit",
     "start": "node server.js",
     "docker-build": "docker-compose up --build",
-    "docker": "docker exec -it ${PWD##*/} transactions-explorer bash"
+    "docker-down": "docker-compose down --rmi local -v",
+    "db:migrate": "npx prisma format && prisma migrate dev --name init"
   },
   "repository": {
     "type": "git",

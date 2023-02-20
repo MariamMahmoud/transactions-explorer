@@ -30,7 +30,7 @@ npm install
 echo "Running migrations......."
 
 # Run database migrations
-# npm run db:migrate
+npm run db:migrate
 
 # Start the Node.js application
 npm start
