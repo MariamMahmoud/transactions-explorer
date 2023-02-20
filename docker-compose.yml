@@ -1,16 +1,32 @@
-version: "2"
+version: "3.9"
+
 services:
-  web:
-    build: .
-    tty: true
-    stdin_open: true
-    ports:
-      - "8080:8080"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: myAdmin
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: transactionsDB
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
     env_file:
       - ./src/config/.env
-    depends_on:
-      - mongo
-  mongo:
-    image: mongo
+    environment:
+      POSTGRES_HOST: db
+      DB_PORT: 5432
+      DB_NAME: transactionsDB
+      DB_USER: myAdmin
+      DB_PASSWORD: mysecretpassword
     ports:
-      - "27017:27017"
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
+
