@@ -13,7 +13,7 @@
 ## Challenges as a list of Learnings :D
 
 - Postgres configuration with node.js and docker
-
+- using `psql` in postgres CLI
 - Setting up and doing migrations in prisma with typescript
 - converting big CSV using command line `csvtojson ./transactions.csv > ./transactions.json` (it can be further automated)
 - stupid but new to me ¯\_(ツ)_/¯: importing libraries and json files in `.ts`
