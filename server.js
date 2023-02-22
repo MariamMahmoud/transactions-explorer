@@ -2,18 +2,18 @@
 
 const app = require('./src/Routes');
 
-const mongoose = require('mongoose');
-const connection = 'mongodb://mongo:27017/<TODO_YOUR_APP_DB>';
-const PORT = 8080;
+const { Pool } = require("pg");
+// Create a connection pool
+const pool = new Pool({
+	user: "postgres",
+	host: "db",
+	database: "mydb",
+	password: "mysecretpassword",
+	port: 5432,
+  });
+  const PORT = 8080;
 
 app.listen(PORT, async function() {
 	console.log(`Listening on ${PORT}`);
-	try {
-		await mongoose.connect(connection);
-		console.log('DB connected');
-		return true;
-	} catch(error) {
-		console.log(error);
-		throw error;
-	}
+	
 });

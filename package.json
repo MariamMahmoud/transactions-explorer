@@ -1,13 +1,18 @@
 {
-  "name": "dockerized-node-mongo-template",
+  "name": "transactions-explorer",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
     "test": "mocha test/**/*.js --exit",
     "start": "node server.js",
     "docker-build": "docker-compose up --build",
-    "docker-bash": "docker exec -it dockerized-node-mongo-template_web_1 bash"
+    "docker-down": "docker-compose down --rmi local -v",
+    "db:migrate": "npx prisma format && prisma migrate dev --name init",
+    "db:seed": "npx prisma db seed"
   },
   "repository": {
     "type": "git",
@@ -20,15 +25,22 @@
   },
   "homepage": "https://github.com/MariamMahmoud/dockerized-node-mongo-template#readme",
   "dependencies": {
+    "@prisma/client": "^4.10.1",
+    "@types/csvtojson": "^2.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.6.1"
+    "papaparse": "^5.3.2",
+    "pg": "^8.9.0"
   },
   "devDependencies": {
+    "@types/node": "^18.14.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "lodash": "^4.17.19",
     "mocha": "^8.0.1",
     "nodemon": "^1.19.1",
-    "swagger-ui-express": "^4.1.4"
+    "prisma": "^4.10.1",
+    "swagger-ui-express": "^4.1.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   }
 }
