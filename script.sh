@@ -32,5 +32,9 @@ echo "Running migrations......."
 # Run database migrations
 npm run db:migrate
 
+# Seed Database
+
+npm run db:seed
+
 # Start the Node.js application
 npm start

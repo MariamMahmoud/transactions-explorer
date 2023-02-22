@@ -8,12 +8,12 @@ datasource db {
 }
 
 model Transaction {
-  id Int @id @default(autoincrement())
+  id String @id @unique
 
   category   Category @relation(fields: [categoryId], references: [id])
-  categoryId Int
+  categoryId String
   account    Account  @relation(fields: [accountId], references: [id])
-  accountId  Int
+  accountId  String
 
   reference String?
   date      DateTime
@@ -25,7 +25,7 @@ model Transaction {
 }
 
 model Category {
-  id           Int           @id @default(autoincrement())
+  id           String @id @unique
   name         String
   color        String
   transactions Transaction[]
@@ -35,7 +35,7 @@ model Category {
 }
 
 model Account {
-  id           Int           @id @default(autoincrement())
+  id           String @id @unique
   name         String?       @default("Anonymus")
   bank         String
   transactions Transaction[]

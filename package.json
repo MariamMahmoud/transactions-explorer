@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
     "test": "mocha test/**/*.js --exit",
     "start": "node server.js",
     "docker-build": "docker-compose up --build",
     "docker-down": "docker-compose down --rmi local -v",
-    "db:migrate": "npx prisma format && prisma migrate dev --name init"
+    "db:migrate": "npx prisma format && prisma migrate dev --name init",
+    "db:seed": "npx prisma db seed"
   },
   "repository": {
     "type": "git",
@@ -21,7 +25,10 @@
   },
   "homepage": "https://github.com/MariamMahmoud/dockerized-node-mongo-template#readme",
   "dependencies": {
+    "@prisma/client": "^4.10.1",
+    "@types/csvtojson": "^2.0.0",
     "express": "^4.17.1",
+    "papaparse": "^5.3.2",
     "pg": "^8.9.0"
   },
   "devDependencies": {
