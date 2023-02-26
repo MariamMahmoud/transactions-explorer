@@ -1,8 +1,8 @@
 import { PrismaClient } from '@prisma/client'
 import accounts from './seeds/accounts.json'
 import categories from './seeds/categories.json'
-// was too big cause heap out of memory
-// can be separated into 2 files to help with that
+// was too big cause heap out of memory (handling is a bonus)
+// random brainstorming idea to import it: can be separated into 2 files to help with that
 import transactions from './seeds/transactions.json'
 
 // idea for fixing forign key error, no idea!!!

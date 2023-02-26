@@ -26,14 +26,13 @@ echo "User and database created!"
 
 #Install dependencies
 npm install
+# Generate prisma client, types
+npm run prisma-generate
 
-echo "Running migrations......."
-
-# Run database migrations
+echo "Running Migrations"
 npm run db:migrate
 
-# Seed Database
-
+echo "Seeding Database"
 npm run db:seed
 
 # Start the Node.js application
