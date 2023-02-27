@@ -29,7 +29,7 @@ Most importantly Graphql has been on my learning list for a long time. I am happ
 
 ## TODOs:
 - [Important] use the full CSV 
-- Test search query
+- Test all search combinations
 - remove allTransactions query when search works, it's redundant
 - Are edits being persisted after restarting the docker?
 - Know more about Qraphql Documentation

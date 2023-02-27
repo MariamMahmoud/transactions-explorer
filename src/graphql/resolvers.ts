@@ -47,43 +47,34 @@ export default {
         },
         // TODO: paginate and sort
 		searchTransactions: (_: any, args: { searchQuery: {
-            categoryName: string,
-            accountName: string,
-            accountBank: string,
-            reference: string,
-            amount: number,
-            dateRange: {
-                start: Date
-                end: Date
+            categoryName?: string,
+            accountName?: string,
+            accountBank?: string,
+            reference?: string,
+            amount?: number,
+            dateRange?: {
+                start?: Date
+                end?: Date
             }
         } }) => {
             const search = args.searchQuery ? {
-                OR: [{
-                    category: {
-                        name: { contains: args.searchQuery.categoryName }
-                    }
+                category: {
+                    name: { contains: args.searchQuery.categoryName }
                 },
-                {
-                    account: {
-                        OR: [
-                            { name: { contains: args.searchQuery.accountName } },
-                            { bank: { contains: args.searchQuery.accountBank } } 
-                        ]
-                        
-                    }
+                account: {
+                    OR: [
+                        { name: { contains: args.searchQuery.accountName } },
+                        { bank: { contains: args.searchQuery.accountBank } } 
+                    ]
+                    
                 },
-                {
-                    reference: { contains: args.searchQuery.reference }
-                },
-                {
-                    amount: {equals: args.searchQuery.amount }
-                },
-                {
-                    AND: [
-                        { date: { gte: args.searchQuery.dateRange.start } },
-                        { date: { lte: args.searchQuery.dateRange.end  } },
-                    ] 
-                }] 
+                reference: { contains: args.searchQuery.reference },
+                amount: {equals: args.searchQuery.amount },
+                AND: [
+                    { date: { gte: args.searchQuery.dateRange?.start } },
+                    { date: { lte: args.searchQuery.dateRange?.end  } },
+                ] 
+                
             }: {};
 
             return prisma.transaction.findMany({
