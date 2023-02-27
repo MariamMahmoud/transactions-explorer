@@ -18,9 +18,12 @@
 - converting **big** CSV to JSON using command line `csvtojson ./transactions.csv > ./transactions.json` (it can be further automated, for example, npm command or script)
 - stupid but new to me ¯\\\_(ツ)_/¯: importing libraries and json files in `.ts`
 - seeding prisma DB with relations
+- prisma fetching records doesn't include the reltions automatically. must `{include: {blabla: true}}`
 
 ## TODOs:
 - [Important] use the full CSV 
-- Use scalar for date type in graphql type
+- Edit queries
+- search query
+- Are edits being persisted after restarting the server?
 - Documentation
 - Add tests 
