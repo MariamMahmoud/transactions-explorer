@@ -9,7 +9,7 @@ datasource db {
 }
 
 model Transaction {
-  id String @id @unique
+  id String @id  @default(uuid())
 
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String
@@ -26,7 +26,7 @@ model Transaction {
 }
 
 model Category {
-  id           String @id @unique
+  id           String @id @default(uuid())
   name         String
   color        String
   transactions Transaction[]
@@ -36,7 +36,7 @@ model Category {
 }
 
 model Account {
-  id           String @id @unique
+  id           String @id @default(uuid())
   name         String?       @default("Anonymus")
   bank         String
   transactions Transaction[]
