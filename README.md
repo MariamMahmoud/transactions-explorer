@@ -8,7 +8,7 @@
 - Install node.js
 - Install typescript
 - Install docker
-- Run `npm run docker-build`
+- Run `npm run docker`
 
 ## Challenges as a list of Learnings :D
 
@@ -20,10 +20,16 @@
 - seeding prisma DB with relations
 - prisma fetching records doesn't include the reltions automatically. must `{include: {blabla: true}}`
 
+## Notes:
+Although I have used nodejs for 3 years in my career, this is my first time using typescript, postgres, sql in general with JS.
+
+Although, this task was not a peice of cake, but I am happy I had  learnt a lot and read full tutorials on prisma, postgres and graphql to put it together.
+Most importantly Graphql has been on my learning list for a long time. I am happy I got the opportunity to have some hands-on with it.
+
+
 ## TODOs:
 - [Important] use the full CSV 
-- Edit queries
 - search query
-- Are edits being persisted after restarting the server?
+- Are edits being persisted after restarting the docker?
 - Documentation
 - Add tests 

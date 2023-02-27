@@ -22,17 +22,28 @@ export default  gql`
         name: String!
         bank: String!
     }
+
+    input categoryData {
+        id: ID
+        name: String
+        color: String
+    }
+
     type Query {
         "get transactions for landing page"
         allTransactions: [Transaction]
         getTransaction: Transaction
         "to be displayed in the categories drop down list"
         allCategories: [Category]
-        getCategory: Category
+        getCategory(id: ID!): Category
         "to be displayed in the accounts drop down list, if needed!"
         allAccounts: [Account]
-        getAccount: Account
-        editTransactionCategory: Transaction
+        getAccount(id: ID!): Account
         searchTransactions: [Transaction]
+    }
+
+    type Mutation {
+        editTransactionCategory(id: ID!, data: categoryData): Transaction
+
     }
 `;
