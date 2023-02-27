@@ -25,12 +25,14 @@ export default  gql`
     type Query {
         "get transactions for landing page"
         allTransactions: [Transaction]
-        transaction: Transaction
+        getTransaction: Transaction
         "to be displayed in the categories drop down list"
         allCategories: [Category]
-        category: Category
+        getCategory: Category
         "to be displayed in the accounts drop down list, if needed!"
         allAccounts: [Account]
-        account: Account
+        getAccount: Account
+        editTransactionCategory: Transaction
+        searchTransactions: [Transaction]
     }
 `;
