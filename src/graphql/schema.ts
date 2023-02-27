@@ -1,27 +1,24 @@
 import { gql } from 'apollo-server';
-// list transactions
-// get one transaction
-// edit transaction, edits category (existing or new)
-// add category
-// search transactions
+
 export default  gql`
+    scalar DateTime @specifiedBy (url: "https://ibm.github.io/graphql-specs/custom-scalars/date-time.html")
+
     type Transaction {
-        id: String!
+        id: ID!
         reference: String!
-        category: Category!
-        account: Account!
-        "convert to scalar type Date"
-        date: String!
+        category: Category
+        account: Account
+        date: DateTime!
         amount: Float!
         currency: String!
     }
     type Category {
-        id: String!
+        id: ID!
         name: String!
         color: String!
     }
     type Account {
-        id: String!
+        id: ID!
         name: String!
         bank: String!
     }
@@ -33,7 +30,7 @@ export default  gql`
         allCategories: [Category]
         category: Category
         "to be displayed in the accounts drop down list, if needed!"
-        allAccount: [Account]
+        allAccounts: [Account]
         account: Account
     }
 `;
