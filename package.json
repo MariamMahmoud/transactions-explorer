@@ -8,13 +8,10 @@
   },
   "scripts": {
     "test": "mocha test/**/*.js --exit",
-    "start": "tsc && node server.ts",
-    "ts:start": "npx ts-node server.ts",
+    "start": "npx ts-node server.ts",
     "docker-down": "docker-compose down --rmi local -v",
     "docker": "npm run docker-down && docker-compose up --build",
     "prisma-generate": "npx prisma generate",
-    "generate": "npx gql-gen --config codegen.yml",
-    "compile": "npm run generate && tsc",
     "db:migrate": "npx prisma format && prisma migrate dev --name init",
     "db:seed": "npx prisma db seed"
   },
