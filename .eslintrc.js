@@ -4,10 +4,16 @@ module.exports = {
 		'commonjs': true,
 		'es2020': true
 	},
-	'extends': 'eslint:recommended',
-	'parserOptions': {
-		'ecmaVersion': 11
-	},
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": [
+	  "@typescript-eslint"
+	],
+	"extends": [
+	  "eslint:recommended",
+	  "plugin:@typescript-eslint/eslint-recommended",
+	  "plugin:@typescript-eslint/recommended"
+	],
 	'rules': {
 		'indent': [
 			'error',

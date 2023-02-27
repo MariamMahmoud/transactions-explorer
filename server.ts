@@ -4,7 +4,7 @@ import resolvers from './src/graphql/resolvers';
 
 
 const PORT = 3000;
-let server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers });
 
 server.listen(PORT).then(() => {
 	console.log(`🚀 Server ready http://localhost:${PORT}`);
