@@ -23,11 +23,27 @@ export default  gql`
         bank: String!
     }
 
+    input DateRange {
+        start: DateTime
+        end: DateTime
+    }
+
+    
+    input SearchQuery {
+        categoryName: String
+        accountName: String
+        accountBank: String
+        reference: String
+        amount: Float
+        dateRange: DateRange
+    }
+
     input categoryData {
         id: ID
         name: String
         color: String
     }
+
 
     type Query {
         "get transactions for landing page"
@@ -39,11 +55,10 @@ export default  gql`
         "to be displayed in the accounts drop down list, if needed!"
         allAccounts: [Account]
         getAccount(id: ID!): Account
-        searchTransactions: [Transaction]
+        searchTransactions(searchQuery: SearchQuery): [Transaction]
     }
 
     type Mutation {
         editTransactionCategory(id: ID!, data: categoryData): Transaction
-
     }
 `;
