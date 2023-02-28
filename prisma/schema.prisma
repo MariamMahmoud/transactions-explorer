@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 datasource db {
@@ -8,12 +9,12 @@ datasource db {
 }
 
 model Transaction {
-  id String @id @unique
+  id String @id  @default(uuid()) @db.Uuid 
 
   category   Category @relation(fields: [categoryId], references: [id])
-  categoryId String
+  categoryId String   @db.Uuid 
   account    Account  @relation(fields: [accountId], references: [id])
-  accountId  String
+  accountId  String   @db.Uuid 
 
   reference String?
   date      DateTime
@@ -25,17 +26,18 @@ model Transaction {
 }
 
 model Category {
-  id           String @id @unique
-  name         String
+  id           String @id @default(uuid()) @db.Uuid
+  name         String @unique
   color        String
   transactions Transaction[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
 }
 
 model Account {
-  id           String @id @unique
+  id           String @id @default(uuid()) @db.Uuid 
   name         String?       @default("Anonymus")
   bank         String
   transactions Transaction[]
