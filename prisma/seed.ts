@@ -1,28 +1,23 @@
 import { PrismaClient } from '@prisma/client';
 import accounts from './seeds/accounts.json';
 import categories from './seeds/categories.json';
-// was too big cause heap out of memory (handling is a bonus)
+// was too big cause heap out of memory 
 // random brainstorming idea to import it: can be separated into 2 files to help with that
 import transactions from './seeds/transactions.json';
 
-// idea for fixing forign key error, no idea!!!
 const prisma = new PrismaClient();
-const parsedTransactions: {  
-    id: string;
-    accountId: string;
-    categoryId: string;
-    reference: string;
-    amount: number;
-    currency: string;
-    date: Date;
- }[] = [];
 
-async function main ()  {   
-	await prisma.account.createMany({data: accounts});
-	await prisma.category.createMany({data: categories});
-
-	// TODO: clean up
-	transactions.forEach(transaction => {
+ const seedTransactions = async() => {
+	const parsedTransactions: {  
+		id: string;
+		accountId: string;
+		categoryId: string;
+		reference: string;
+		amount: number;
+		currency: string;
+		date: Date;
+	 }[] = [];
+	 transactions.forEach(transaction => {
 		parsedTransactions.push(
 			{
 				id: transaction.id,
@@ -36,6 +31,12 @@ async function main ()  {
 		);
 	});
 	await prisma.transaction.createMany({data: parsedTransactions});
+ }
+
+async function main ()  {   
+	await prisma.account.createMany({data: accounts});
+	await prisma.category.createMany({data: categories});
+	await seedTransactions();
 }
 
 main()
