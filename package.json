@@ -8,9 +8,12 @@
   },
   "scripts": {
     "test": "mocha test/**/*.js --exit",
-    "start": "node server.js",
-    "docker-build": "docker-compose up --build",
-    "docker-down": "docker-compose down --rmi local -v",
+    "lint": "eslint . --ext .ts --fix",
+    "start": "npx ts-node server.ts",
+    "docker:down": "docker-compose down --rmi local -v",
+    "docker:up": "docker-compose up --build",
+    "docker": "npm run docker:down && docker-compose up --build",
+    "prisma:generate": "npx prisma generate",
     "db:migrate": "npx prisma format && prisma migrate dev --name init",
     "db:seed": "npx prisma db seed"
   },

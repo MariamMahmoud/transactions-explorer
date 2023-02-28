@@ -26,6 +26,8 @@ echo "User and database created!"
 
 #Install dependencies
 npm install
+# Generate prisma client, types
+npm run prisma:generate
 
 echo "Running migrations......."
 

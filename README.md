@@ -5,12 +5,13 @@
 
 ## How to run
 # prerequisits:
-- Install node.js
-- Install typescript
 - Install docker
-- Run `npm run docker-build`
+- Run `npm run docker`
+** this command removes all exisiting containers and builds fresh ones.
+If you want to keep you containers run `npm run docker:up`
 
-## Challenges as a list of Learnings :D
+## Learnings :D
+Documenting learnings list for future refrence. The following are the things I learnt while doing this project:
 
 - Postgres configuration with node.js and docker
 - using `psql` in postgres CLI
