@@ -1,7 +1,7 @@
 {
   "name": "transactions-explorer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Task for a certain company (to keep it confidential)",
   "main": "server.ts",
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -24,7 +24,7 @@
   "author": "MariamMahmoud",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MariamMahmoud/dockerized-node-mongo-template/issues"
+    "url": "https://github.com/MariamMahmoud/transactions-explorer/issues"
   },
   "homepage": "https://github.com/MariamMahmoud/dockerized-node-mongo-template#readme",
   "dependencies": {

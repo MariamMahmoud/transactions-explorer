@@ -39,3 +39,4 @@ Most importantly Graphql has been on my learning list for a long time. I am happ
 - Remove allTransactions query when search works, it's redundant (empty search lists all)
 - Know more about Graphql Documentation
 - Add tests
+- Configure CI
