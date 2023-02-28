@@ -22,10 +22,18 @@ EOSQL
 
 echo "User and database created!"
 
-
-
 #Install dependencies
-npm install
+echo "Installing dependencies....."
+npm install --loglevel=error
+
+# TODO: fix auto convert script
+# echo "converting csv to JSON...."
+# touch ./prisma/seeds/transactions.json
+# csvtojson ./prisma/seeds/transactions.csv > ./prisma/seeds/transactions.json
+# rm ./prisma/seeds/transactions.csv
+
+
+
 # Generate prisma client, types
 npm run prisma:generate
 
